@@ -1,4 +1,4 @@
-#deep learning olanından karma yapmalı
+#deep learning olanindan karma yapmali
 import argparse
 import os
 import networkx
@@ -14,12 +14,12 @@ import os
 def pecheck(fullpath):
     return open(fullpath).read(2) == "MZ"
 
-def getstrings(fullpath): #aralarındaki benzerlik için stringleri kullanacak
+def getstrings(fullpath): #aralarindaki benzerlik icin stringleri kullanacak
     strings = os.popen("strings '{0}'".format(fullpath)).read()
     strings = set(strings.split("\n"))
     return strings
 
-def jaccard(set1, set2): # bu değiştirilebilir
+def jaccard(set1, set2): # bu degistirilebilir
     intersection = set1.intersection(set2)
     intersection_length = float(len(intersection))
     union= set1.union(set2)
@@ -27,7 +27,7 @@ def jaccard(set1, set2): # bu değiştirilebilir
     return intersection_length / union_length
 
 def featurextrandnode(malware_paths, malware_attributes):
-    #özellikleri çıkartıp node çizmeliyim
+    #ozellikleri cikartip node cizmeliyim
     graph = networkx.Graph()
     for path in malware_paths:
         attributes = getstrings(path)
@@ -36,7 +36,7 @@ def featurextrandnode(malware_paths, malware_attributes):
 
         # add each malware file to the graph
         graph.add_node(path,label=os.path.split(path)[-1][:10])
-    #verilerini tek tek çıkartıp nodea ekler
+    #verilerini tek tek cikartip nodea ekler
     #iterate through all pairs of malware
     for malware1,malware2 in itertools.combinations(malware_paths,2):
 
@@ -50,12 +50,12 @@ def featurextrandnode(malware_paths, malware_attributes):
         
     # write the graph to disk so we can visualize it
     write_dot(graph,args.output_dot_file)
-    #tüm malwareler ile biizmkini kontrol eder jaccardlarını kıyaslar ona göre bağlantı seçer
+    #tum malwareler ile biizmkini kontrol eder jaccardlarini kiyaslar ona gre baglanti secer
 
-#buradaki malware attributes global olmalı
-# hem özelliklerini çıkartıp node çiziyor sonra bağlantılarını çiziyor
+#buradaki malware attributes global olmali
+# hem ozelliklerini cikartip node ciziyor sonra baglantilarini ciziyor
 
-#burada ekstra bir şey yaptırmamış olurum
+#burada ekstra bir sey yaptirmamis olurum
 
 
 
@@ -106,7 +106,7 @@ if __name__ == '__main__':
             full_path = os.path.join(root, path)
             malware_paths.append(full_path)
     
-    # PE olup olmadıklarını kontrol eder
+    # PE olup olmadiklarini kontrol eder
     malware_paths = filter(pecheck,malware_paths)
 
 
@@ -117,18 +117,18 @@ if __name__ == '__main__':
     # create the model using the function from the model architecture section:
     model = my_model(input_length=features_length)
 
-    #özellikleri çıkartıp node çizme fonksyionu eklenir
+    #ozellikleri cikartip node cizme fonksyionu eklenir
     training_generator = featurextrandnode(malware_paths,malware_attributes)
-     # and now train the model: son olarak bunlar kullanarak nöronları eğitmek için fit kullanılır
-    # bu da 3 parametre alır.  generator  olan oluşturucu parametresi, steps_per_epoch, modelin her dönem işlemesini istediğimiz parti sayısını ayarlar. 
+     # and now train the model: son olarak bunlar kullanarak noronları egitmek icin fit kullanlr
+    # bu da 3 parametre alr.  generator  olan olusturucu parametresi, steps_per_epoch, modelin her donem islemesini istedigimiz parti sayisini ayarlar. 
     model.fit_generator(
         generator=training_generator,
         steps_per_epoch=num_obs_per_epoch / batch_size,
         epochs=10,
         verbose=1)
-#training generator kullanılarak model eğitimi tamamlanmış olur.
+#training generator kullanilarak model egitimi tamamlanmis olur.
 
-     # save the model modeli böyle direkt kaydedersin
+     # save the model modeli boyle direkt kaydedersin
     model.save('my_model.h5')
     # load the model back into memory from the file:
     same_model = load_model('my_model.h5')  # from keras.models.load_model
@@ -140,7 +140,7 @@ if __name__ == '__main__':
 
 
 
-#oluşturma ve training
+#olusturma ve training
 #deneme
     
 
