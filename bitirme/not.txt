@@ -1,0 +1,55 @@
+ilk olarak  machine olanı konsole dökmeli
+deep uygulamaları 
+deep çevirme
+
+bu kodları yazdıktan sonra gite yüklemeli bunun zararlılarını da forklamalı sadece lazım olanları
+
+1.py--> derlemek için
+python a.py ../data deneme_similarity_graph.dor 
+
+fdp -Tpng -o deneme_similarity_graph.png deneme_similarity_graph.dot
+
+örnek bir dot oluşturduktan sonra yeni veriyi alacakve benzerlik olanları yazmalı yani ayrı olarak ayrışmada eklemeli
+
+--> 2.py 1. olanı konsole yazmaya çalışmalı.
+https://github.com/d84-n1nj4/malwareDataScience/tree/master/ch5/data/APT1_MALWARE_FAMILIES
+burada veriler bunu ubuntuya yüklemeli
+https://github.com/hija/MalwareDataScience/tree/master/chapter05 
+burada örnek olarak çok güzel yapmış
+
+2 yi uygula konsole çıkarmazsa konsole olanı yap
+--> python 3.py ../data ../data/APT1_MALWARE_FAMILIES/WEBC2-GREENCAT/WEBC2-GREENCAT_sample/WEBC2-GREENCAT_sample_E54CE5F0112C9FDFE86DB17E85A5E2C5  a.dot
+ komut bu çıktı veriyor ve fdp ile çizdirince bağlantılı olanalra ok veriyor
+
+11 olanı deep çalış ve anla
+deepe uyarla
+
+4.py -->  basit bir model yapısını katmanlı olarak nasıl oluşturuz ve parametreleri nelerdir bunları açıkladı
+
+5.py -> eğitim
+data kısmında kötü ve iyi huylu html var açma
+ama incele :)))
+
+model_training olanı tam anla ve uygula diğerne çevir notlara devam auc olandan
+bunun sonucuda bir .h5 oluşuyor bu neişe yarar
+
+İkili bir öngörücünün doğruluğunu değerlendirmek için kullanışlı bir metriğe eğri altındaki alan (AUC) denir. 
+
+4 validationları kullanarak auv metriğini hesaplaıyor
+3 de falsepositve ve doğruları hesaplıyor
+from sklearn import metrics
+(1) validation_labels = validation_data[1]
+(2) validation_scores = [el[0] for el in model.predict(validation_data[0])]
+(3) fpr, tpr, thres = metrics.roc_curve(y_true=validation_labels,
+								y_score=validation_scores)
+(4) auc = metrics.auc(fpr, tpr)
+print('Validation AUC = {}'.format(auc))
+
+model_evaluation.py dosyasında bulunan roc_plot () işlevini de kullanabilirsiniz. .
+roc eğrisini çizdirir
+from ch11.model_evaluation import roc_plot
+roc_plot(fpr=fpr, tpr=tpr, path_to_file='roc_curve.png')
+
+bunlarla modelimizi değerlendirmiş olruz false pozitif oranlarının neler olacağını
+
+

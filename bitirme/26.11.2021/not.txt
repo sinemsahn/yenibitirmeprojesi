@@ -1,0 +1,11 @@
+2.py olan deep+ machineden yararlanıp denemem gereken kod:
+kullanıcıdan malware path ve jaccard indexi alıp deep learning ile
+aralarındaki bağlantıyı stringlerini ayrıştırıp graph ile çiziyor.
+buna ekstra olarak kullanıcının istediği exenin elimizde olan
+aptler ile olan bağlantısını çözmesini sağlayacak şekilde ilerletebilirz.
+
+
+3.py machine learning apt detectiondır
+
+model_training.py var dizinde o da htmlleri ayrıştıırp iyi huylu zararlı 
+olmadığını tespit eden deep learning kodudur.

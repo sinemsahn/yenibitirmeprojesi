@@ -1,0 +1,42 @@
+https://machinelearningmastery.com/tutorial-first-neural-network-python-keras/
+sitesinden devam
+sonra kodu tekrar incelemeli
+
+keras , verimli sayısal hesaplama kitaplıkları Theano ve tensorflowu kapsar ve sinir ağı modellerini yalnızca birkaç kod satırında tanımlamanıza ve eğitmenize olanak tanır.
+pythonda deep learning derin öğrenme sinir ağı modelinizi nasıl oluşturacağınızı keşfedeceksiniz.
+
+Veri yükle.
+Keras Modelini tanımlayın.
+Keras Modelini Derleyin.
+Uygun Keras Modeli.
+Keras Modelini Değerlendirin.
+Hepsini Bir Araya Bağlayın.
+Tahminler Yapın
+
+gereklilikler :
+Python 2 veya 3 kurulu ve yapılandırılmış.
+SciPy (NumPy dahil) kurulu ve yapılandırılmış.
+Keras'ınız ve bir arka uç (Theano veya TensorFlow) kurulu ve yapılandırılmış.
+
+1.Verileri Yükle: load data
+Veri setimizi yüklemek için NumPy kütüphanesini kullanacağız ve modelimizi tanımlamak için Keras kütüphanesinden iki sınıf kullanacağız.
+
+...
+# first neural network with keras tutorial
+from numpy import loadtxt
+from keras.models import Sequential
+from keras.layers import Dense
+...
+Bu Keras eğitiminde, Pima Kızılderililerinin diyabet veri setinin başlangıcını kullanacağız. Bu, UCI Makine Öğrenimi deposundan alınan standart bir makine öğrenimi veri kümesidir. Pima Kızılderilileri için hasta tıbbi kayıt verilerini ve beş yıl içinde diyabet başlangıcı olup olmadığını açıklar.
+Bu haliyle ikili bir sınıflandırma problemidir (diyabetin başlangıcının 1 olması veya 0 olmaması).
+veriyi .csv olarak kaydediyor
+Artık dosyayı NumPy loadtxt() işlevini kullanarak bir sayı matrisi olarak yükleyebiliriz. .
+
+bunu geçtim çünkü csv verilerden x ve y tanımlamış bunda benim csv yok
+
+
+2.keras modelini tanımlayın:
+sıralı bir model oluşturuyoruz ve ağ mimarimizden memnun kalana kadar katmanları birer birer ekliyoruz.
+
+bağlı katmanlar dense kullanılarak tanımlanır. ilk argüman olarak katmandaki nöronların veya düğümlerin sayısnu belirleyebilir ve aktivasyon argümanını kullanarak aktivasyon fonksiyonunu belirtebiliriz.
+İlk iki katmanda ReLU olarak adlandırılan rektifiye lineer birim aktivasyon fonksiyonunu ve çıkış katmanında Sigmoid fonksiyonunu kullanacağız.
